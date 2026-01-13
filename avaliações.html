@@ -1,9 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fisio + Terapia | Saúde Integral | Avaliações</title>
+    <link rel="stylesheet" href="visu.css" />
+    <style>
+        body {
+    background-image:
+        linear-gradient(
+            rgba(244, 241, 234, 0.85),
+            rgba(244, 241, 234, 0.85)
+        ),
+        url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+    </style>
+ </head>
+ <body>
+
+    <button class="btn-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
 
-</head>
+    <aside id="sidebar">
+        <div class="logo-sidebar">
+            <img src="logo.png" alt="Fisio + Terapia">
+        </div>
+        <nav>
+            <a href="index.html" onclick="toggleSidebar()">Início</a>
+            <a href="paglogin.html" onclick="toggleSidebar()">Login</a>
+            <a href="pagcadastro.html" onclick="toggleSidebar()">Cadastro</a>
+            <a href="avaliações.html" onclick="toggleSidebar()">Avaliações</a>
+            <a href="configurações.html" oncli5ck="toggleSidebar()">Configurações</a>
+        </nav>
+    </aside>
+
+
+    <main>
+        <h1 style="color:#1a3c40; margin-bottom:30px; text-align:center; margin-top : 40px"">Avaliações</h1>
+
+        <section class="galeria">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8J9Wdcwjc4q0q-LQr6wcbvSW8VynxQBI7KQ&s">
+        </section>
+    </main>
+
+
+        <footer>
+            <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
+        </footer>
+    </main>
+
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+ </body>
+</html>
