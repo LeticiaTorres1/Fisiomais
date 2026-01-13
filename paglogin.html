@@ -1,9 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fisio + Terapia | Saúde Integral | Login</title>
+    <link rel="stylesheet" href="visu.css" />
+
+ </head>
+  <body>
+
+    <button class="btn-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
 
-</head>
+    <aside id="sidebar">
+        <div class="logo-sidebar">
+            <img src="logo.png" alt="Fisio + Terapia">
+        </div>
+        <nav>
+            <a href="index.html" onclick="toggleSidebar()">Início</a>
+            <a href="paglogin.html" onclick="toggleSidebar()">Login</a>
+            <a href="pagcadastro.html" onclick="toggleSidebar()">Cadastro</a>
+            <a href="avaliações.html" onclick="toggleSidebar()">Avaliações</a>
+            <a href="configurações.html" oncli5ck="toggleSidebar()">Configurações</a>
+        </nav>
+    </aside>
+    
+<main class="login-page">
+    <div class="login-container">
+        <h1>Login</h1>
+        <p>Faça o seu login para acessar sua conta do sistema</p>
+
+        <form>
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <div class="login-links">
+            <a href="#">Esqueci a senha</a>
+            <a href="pagcadastro.html">Criar conta</a>
+        </div>
+    </div>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+  </body>
+</html>
