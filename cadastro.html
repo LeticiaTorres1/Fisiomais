@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio + Terapia | Saúde Integral | Login</title>
+    <link rel="stylesheet" href="visu.css" />
+
+ </head>
+  <body>
+
+    <button class="btn-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+
+    <aside id="sidebar">
+        <div class="logo-sidebar">
+            <img src="logo.png" alt="Fisio + Terapia">
+        </div>
+        <nav>
+            <a href="index.html" onclick="toggleSidebar()">Início</a>
+            <a href="paglogin.html" onclick="toggleSidebar()">Login</a>
+            <a href="pagcadastro.html" onclick="toggleSidebar()">Cadastro</a>
+            <a href="avaliações.html" onclick="toggleSidebar()">Avaliações</a>
+            <a href="configurações.html" oncli5ck="toggleSidebar()">Configurações</a>
+        </nav>
+    </aside>
+
+    <main class="login-page">
+     <div class="login-container">
+        <h1 style="color:#1a3c40; margin-bottom:30px; text-align:center; margin-top : 40px"">Cadastro</h1>
+        <p style = "text-align:center;">Escolha uma opção de cadastro</p>
+
+        <div style="display: flex; gap: 40px; width: 100%;">
+              <a href="pagcad-paciente.html" style="text-decoration:none;">
+                <div class="config-card" style="text-align:center; cursor:pointer;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="Paciente" style="width:120px; margin-bottom:25px;">
+
+                    <h2 style="color:var(--azul-logo); margin-bottom:15px;"> Paciente </h2>
+                </div>
+              </a>
+
+              <a href="pagcad-profissional.html" style="text-decoration:none;">
+                <div class="config-card" style="text-align:center; cursor:pointer;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Profissional" style="width:120px; margin-bottom:25px;">
+
+                    <h2 style="color:var(--azul-logo); margin-bottom:15px;"> Profissional </h2>
+                </div>
+              </a>
+
+        </div>
+     </div>
+    </div>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+  </body>
+</html>
