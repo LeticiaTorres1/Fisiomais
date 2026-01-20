@@ -9,22 +9,22 @@
  </head>
   <body>
 
-    <button class="btn-toggle" onclick="toggleSidebar()">☰</button>
-    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
-
-    <aside id="sidebar">
-        <div class="logo-sidebar">
-            <img src="logo.png" alt="Fisio + Terapia">
+    <header>
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="logo.png" alt="Fisio + Terapia" width=28%>
+            </div>
+            <nav>
+                <ul class="menu-horizontal">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="paglogin.html">Login</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="avaliações.html">Avaliações</a></li>
+                    <li><a href="configurações.html">Configurações</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <a href="index.html" onclick="toggleSidebar()">Início</a>
-            <a href="paglogin.html" onclick="toggleSidebar()">Login</a>
-            <a href="cadastro.html" onclick="toggleSidebar()">Cadastro</a>
-            <a href="avaliações.html" onclick="toggleSidebar()">Avaliações</a>
-            <a href="configurações.html" onclick="toggleSidebar()">Configurações</a>
-        </nav>
-    </aside>
+    </header>
 
     <main class="login-page">
      <div class="login-container">
@@ -56,12 +56,5 @@
     <footer>
         <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-            document.getElementById('overlay').classList.toggle('active');
-        }
-    </script>
   </body>
 </html>
