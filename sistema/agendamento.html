@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio + Terapia | Sistema de Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <section id="pagina-profissionais">
+        <h1>Fisio + Terapia</h1>
+        <p class="subtitulo">Selecione um especialista para iniciar seu atendimento</p>
+        <div class="cards">
+            <div class="card">
+                <img src="CAMILA.png" alt="Dra. Camila">
+                <h3>Dra. Camila Cavalcante</h3>
+                <button onclick="abrirAgendamento('Camila Cavalcante')">Agendar Consulta</button>
+            </div>
+            <div class="card">
+                <img src="ELOISA.png" alt="Dra. Eloisa">
+                <h3>Dra. Eloisa Santos</h3>
+                <button onclick="abrirAgendamento('Eloisa Santos')">Agendar Consulta</button>
+            </div>
+            <div class="card">
+                <img src="RICARDO.png" alt="Dr. Ricardo">
+                <h3>Dr. Ricardo Silva</h3>
+                <button onclick="abrirAgendamento('Ricardo Silva')">Agendar Consulta</button>
+            </div>
+            <div class="card">
+                <img src="ROBERTO.png" alt="Dr. Roberto">
+                <h3>Dr. Roberto Sá</h3>
+                <button onclick="abrirAgendamento('Roberto Sá')">Agendar Consulta</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="pagina-agendamento" class="hidden">
+        <h2 id="titulo-profissional"></h2>
+        <div class="form-container">
+            <form onsubmit="finalizarAgendamento(event)">
+                <label>Data da consulta</label>
+                <input type="date" id="dataConsulta" required>
+                <label>Horário</label>
+                <select id="horario" required>
+                    <option value="">Selecione um horário</option>
+                    <option>08:00</option><option>10:00</option><option>14:00</option><option>16:00</option>
+                </select>
+                <label>Nome completo do paciente</label>
+                <input type="text" id="nomePaciente" placeholder="Seu nome completo" required>
+                <label>Plano de fisioterapia</label>
+                <select id="plano" required>
+                    <option value="">Selecione o plano</option>
+                    <option>Básico</option><option>Essencial</option><option>Avançado</option><option>Premium</option>
+                </select>
+                <button type="submit" class="btn-principal">Confirmar Agendamento</button>
+                <button type="button" onclick="voltarParaInicio()" class="btn-secundario">Cancelar</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="pagina-confirmacao" class="hidden">
+        <div class="confirmacao-box">
+            <div class="check-icon">✓</div>
+            <h2>Agendamento Concluído!</h2>
+            <div id="resumo-agendamento"></div>
+            <p class="aviso-checkin"><strong>Importante:</strong> Na data da sua consulta, ao chegar na clínica, confirme que veio à consulta fazendo o seu check-in.</p>
+            <hr>
+            <button onclick="irParaCheckin()" class="btn-principal">Ir para Check-in agora</button>
+            <button onclick="voltarParaInicio()" class="btn-secundario">Voltar ao Início</button>
+        </div>
+    </section>
+
+    <section id="pagina-checkin" class="hidden">
+        <h2>Gerenciar Consulta</h2>
+        <p class="subtitulo">Confirme sua presença ou informe imprevistos</p>
+        <div class="form-container">
+            <label>Código da Consulta</label>
+            <input type="text" id="codigoCheckin" placeholder="Ex: FT-123456">
+            
+            <div class="botoes-lado-a-lado">
+                <button onclick="confirmarPresenca()" class="btn-principal">Confirmar Presença</button>
+                <button onclick="abrirCancelamento()" class="btn-ausente">Não compareci</button>
+            </div>
+            
+            <div id="mensagem-checkin" class="hidden"></div>
+
+            <div id="area-cancelamento" class="hidden mt-20">
+                <hr>
+                <label>Motivo da ausência</label>
+                <textarea id="motivoAusencia" rows="3" placeholder="Conte-nos o que aconteceu..."></textarea>
+                <p style="margin-top:10px; font-size: 0.9em;">Deseja reagendar para outra data?</p>
+                <button onclick="voltarParaInicio()" class="btn-principal">Sim, desejo reagendar</button>
+                <button onclick="confirmarCancelamentoFinal()" class="btn-secundario">Não, apenas cancelar</button>
+            </div>
+        </div>
+        <button onclick="voltarParaInicio()" class="btn-secundario">Voltar ao início</button>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
