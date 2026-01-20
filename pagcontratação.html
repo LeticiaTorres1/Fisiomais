@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio + Terapia | Saúde Integral | Plano</title>
+    <link rel="stylesheet" href="visu.css" />
+
+    <style>
+
+    </style>
+
+ </head>
+  <body>
+
+    <button class="btn-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+
+    <aside id="sidebar">
+        <div class="logo-sidebar">
+            <img src="logo.png" alt="Fisio + Terapia">
+        </div>
+        <nav>
+            <a href="index.html" onclick="toggleSidebar()">Início</a>
+            <a href="paglogin.html" onclick="toggleSidebar()">Login</a>
+            <a href="cadastro.html" onclick="toggleSidebar()">Cadastro</a>
+            <a href="avaliações.html" onclick="toggleSidebar()">Avaliações</a>
+            <a href="configurações.html" onclick="toggleSidebar()">Configurações</a>
+        </nav>
+    </aside>
+    
+<main class="login-page">
+    <div class="login-container">
+        <h1>Contratação do Plano</h1>
+        <p>Faça o seu login e realize o pagamento do plano</p>
+
+        <form>
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+
+                <select id="formaPagamento" onchange="mostrarPagamento()">
+                 <option value="">Forma de pagamento</option>
+                 <option value="pix">Pix</option>
+                 <option value="cartao">Cartão</option>
+                </select>
+
+
+    <div id="pix" class="pagamento" style="display:none;">
+        <div class="qrcode">
+            <img src = "qrcod.jpg" width = "200px">
+        </div>
+    </div>
+
+
+    <div id="cartao" class="pagamento" style="display:none;">
+        <input type="text" placeholder="Nome do titular">
+        <input type="text" placeholder="Número do cartão">
+        <input type="text" placeholder="CVC">
+        <input type="month" placeholder="Validade">
+    </div>
+
+         <button type="submit">Finalizar Contratação</button>
+        </form>
+
+        <div class="login-links">
+            <a href="pagcad-paciente.html">Criar conta</a>
+        </div>
+    </div>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+
+        function mostrarPagamento() {
+        const forma = document.getElementById("formaPagamento").value;
+            document.getElementById("pix").style.display = "none";
+            document.getElementById("cartao").style.display = "none";
+
+
+        if (forma === "pix") {
+            document.getElementById("pix").style.display = "block";
+        }
+
+
+        if (forma === "cartao") {
+            document.getElementById("cartao").style.display = "block";
+        }
+       }
+
+    </script>
+  </body>
+</html>
