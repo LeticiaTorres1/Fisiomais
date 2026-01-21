@@ -22,7 +22,6 @@
             color: var(--texto-corpo);
             line-height: 1.6;
             overflow-x: hidden;
-            margin-top: 150px;
         }
 
         header {
@@ -62,7 +61,7 @@
         }
 
         .menu-horizontal a:hover {
-            color: #00a8a8;
+            color: black;
         }
 
         .btn-toggle, #sidebar, .overlay {
@@ -359,7 +358,7 @@
 
 
         footer {
-            padding: 40px;
+            padding: 60px;
             text-align: center;
             background-color: var(--branco);
             border-top: 1px solid #ddd;
