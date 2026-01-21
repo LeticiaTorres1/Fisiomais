@@ -168,27 +168,6 @@
             margin-bottom: 20px;
         }
 
-        aside {
-            width: var(--sidebar-width);
-            height: 100vh;
-            background-color: var(--bege-claro);
-            position: fixed;
-            left: calc(-1 * var(--sidebar-width));
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            padding: 100px 30px 40px 30px;
-            box-shadow: 5px 0 25px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            border-right: 1px solid var(--bege-escuro);
-        }
-
-
-        aside.open {
-            left: 0;
-        }
-
 
         nav {
             display: flex;
@@ -612,6 +591,70 @@
             font-weight: bold;
         }
 
+
+        .nossos-profissionais {
+            background-color: #1f3f45;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+
+        .nossos-profissionais h2 {
+            color: #ffffff;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+
+        .nossos-profissionais h3 {
+            color: #cfe6e8;
+            font-size: 26px;
+            margin: 40px 0 25px;
+        }
+
+
+        .profissionais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+
+        .profissional img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #2f6f75;
+            background-color: #ffffff;
+        }
+
+
+        .profissional p {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+
+        .profissional span {
+            display: block;
+            font-size: 0.95em;
+            font-weight: bold;
+            color: #0066cc;
+            margin-top: 4px;
+        }
+
+
+        .profissionais-grid.administrativo {
+            grid-template-columns: repeat(2, 160px);
+            gap: 10px;
+            justify-content: center;
+        }
+
+        
 
         @media (max-width: 480px) {
             .login-container {

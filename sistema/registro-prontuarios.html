@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Prontuários Registrados</title>
+<style>
+body {
+    font-family: Arial;
+    background-color: #f1f3f4;
+    padding: 20px;
+}
+
+h1 {
+    background-color: #0d47a1;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.prontuario {
+    background-color: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>Prontuários Registrados</h1>
+<div id="lista"></div>
+
+<script>
+let todos = JSON.parse(localStorage.getItem("prontuarios")) || [];
+let fisioAtual = localStorage.getItem("fisioAtual");
+let div = document.getElementById("lista");
+
+div.innerHTML = "";
+
+todos.forEach((p, indice) => {
+    if (p.fisioCrefito === fisioAtual) {
+        div.innerHTML += `
+        <div class="prontuario">
+            <h3>Paciente: ${p.nome}</h3>
+            <p><b>Fisioterapeuta:</b> ${p.fisioNome} (${p.fisioCrefito})</p>
+            <p><b>QP:</b> ${p.qp}</p>
+            <p><b>Diagnóstico:</b> ${p.diagnostico}</p>
+            <p><b>Conduta:</b> ${p.conduta}</p>
+
+
+            <button onclick="fazerAlteracoes(${indice})">
+                Fazer Alterações
+            </button>
+        </div>
+        `;
+    }
+});
+
+function fazerAlteracoes(indice) {
+    localStorage.setItem("indiceEdicao", indice);
+    window.location.href = "prontuario.html";
+}
+</script>
+</body>
+</html>
