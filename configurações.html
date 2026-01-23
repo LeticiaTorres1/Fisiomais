@@ -1,13 +1,284 @@
 <!DOCTYPE html>
 <html lang="pt-br">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fisio + Terapia | Saúde Integral | Configurações</title>
+    <title>Fisio + Terapia | Configurações</title>
     <link rel="stylesheet" href="visu.css" />
+   
+    <style>
+        :root {
+            --primary: #059669;      
+            --primary-light: #10b981;
+            --bg-body: #f8fafc;      
+            --bg-card: #ffffff;
+            --text-main: #1e293b;    
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --radius: 10px;
+        }
 
- </head>
-  <body style = "margin-top: 130px;">
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .content-area {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .settings-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: #fcfcfc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+       
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .barra-configurações {
+            background-color: var(--azul-medio);
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background-color: white;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        input:disabled {
+            background-color: #f1f5f9;
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+        }
+
+
+        .btn-outline {
+            background-color: white;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        .btn-outline:hover {
+            background-color: #f8fafc;
+            border-color: var(--text-muted);
+        }
+
+
+        .btn-danger {
+            color: var(--danger);
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            width: 100%;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .list-row:last-child { border-bottom: none; }
+
+        .list-info strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+       
+        .list-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .switch-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #cbd5e0;
+            border-radius: 34px;
+            transition: .3s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .3s;
+        }
+        input:checked + .slider { background-color: var(--primary); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        .badge-green { background: #d1fae5; color: #065f46; }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-bottom: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .content-area { padding: 1rem; }
+        }
+    </style>
+</head>
+
+<body style = "margin-top: 80px;">
     <header>
         <div class="nav-container">
             <div class="logo-nav">
@@ -24,11 +295,179 @@
             </nav>
         </div>
     </header>
+    <main class="content-area">
+       
+        <div class="header-title">
+        <div class="barra-configurações">Configurações</div>
+            <p>Gerencie seus dados pessoais, pagamentos e preferências.</p>
+        </div>
 
+        <div class="settings-grid">
+            <section class="card">
+                <div class="card-header">
+                    <h2>Informações Pessoais</h2>
+                    <button class="btn btn-outline btn-sm">Editar Foto</button>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" value="Carlos Eduardo Silva" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>CPF</label>
+                            <input type="text" value="***.***.***-00" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail Principal</label>
+                            <input type="email" value="carlos.silva@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone / WhatsApp</label>
+                            <input type="tel" value="(11) 98765-4321">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Endereço Residencial</label>
+                            <input type="text" value="Av. Paulista, 1000 - Bela Vista, São Paulo">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2>Aplicativos Conectados</h2>
+                </div>
+                <div class="card-body">
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0;">
+                        Sincronize seus dados de atividade física para melhor acompanhamento.
+                    </p>
+                    <ul class="item-list">
+                        <li class="list-row">
+                            <div class="list-info">
+                                <strong>Apple Saúde / Google Fit</strong>
+                                <span>Passos diários e mobilidade</span>
+                            </div>
+                            <span class="badge badge-green">Conectado</span>
+                        </li>
+                        <li class="list-row">
+                            <div class="list-info">
+                                <strong>Strava</strong>
+                                <span>Histórico de corridas e pedaladas</span>
+                            </div>
+                            <button class="btn btn-outline btn-sm">Conectar</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2>Métodos de Pagamento</h2>
+                </div>
+                <div class="card-body">
+                    <div class="list-row" style="background: #f8fafc; padding: 1rem; border-radius: 6px; border: 1px solid var(--border); margin-bottom: 1rem;">
+                        <div class="list-info">
+                            <strong style="color:var(--text-main);">Mastercard final 4242</strong>
+                            <span>Expira em 12/28 • Padrão</span>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Remover</button>
+                    </div>
+                    <button class="btn btn-outline" style="width: 100%;">+ Adicionar novo cartão</button>
+                   
+                    <div style="margin-top: 2rem;">
+                        <label style="margin-bottom: 1rem; display:block;">Histórico de Faturas</label>
+                        <ul class="item-list">
+                            <li class="list-row">
+                                <div class="list-info">
+                                    <strong>Consulta Avaliação</strong>
+                                    <span>15 Jan 2025</span>
+                                </div>
+                                <strong style="font-size: 0.9rem;">R$ 150,00</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2>Meus Exames</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="item-list">
+                        <li class="list-row">
+                            <div class="list-info">
+                                <strong>Ressonância Magnética - Joelho D.</strong>
+                                <span>Enviado em 20/01/2025 • PDF</span>
+                            </div>
+                            <button class="btn btn-outline btn-sm">Baixar</button>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="margin-top: 1rem; width:100%;">Enviar Novo Documento</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2>Preferências e Segurança</h2>
+                </div>
+                <div class="card-body">
+                   
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>Notificações Push</strong>
+                            <span>Receber alertas instantâneos na tela do celular/PC.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>Lembretes por E-mail</strong>
+                            <span>Avisos de consulta e faturas.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>Autenticação de Dois Fatores (2FA)</strong>
+                            <span>Aumentar a segurança da conta via SMS.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 2rem 0;">
+
+                    <div class="form-group">
+                        <label>Alterar Senha</label>
+                        <input type="password" placeholder="Nova senha" style="margin-bottom: 0.5rem;">
+                        <input type="password" placeholder="Confirmar nova senha">
+                        <button class="btn btn-primary" style="margin-top: 1rem;">Atualizar Senha</button>
+                    </div>
+                   
+                    <div style="margin-top: 3rem;">
+                        <button class="btn btn-danger">Encerrar Conta</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
 
         <footer>
             <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
         </footer>
     </main>
- </body>
+</body>
 </html>
