@@ -171,8 +171,8 @@
         /*INDEX*/
         .hero {
             background: linear-gradient(rgba(26, 60, 64, 0.4), rgba(26, 60, 64, 0.4)),
-                        url('https://portalhospitaisbrasil.com.br/wp-content/uploads/idoso.jpg')
-                        no-repeat center center/cover;
+            url('https://portalhospitaisbrasil.com.br/wp-content/uploads/idoso.jpg')
+            no-repeat center center/cover;
             height: 65vh;
             display: flex;
             align-items: center;
@@ -587,6 +587,8 @@
             background-color: #0aa39c;
         }
 
+
+        /*PÁGINA CONTRATAÇÃO*/
         .pagamento {
             margin-top: 15px;
         }
