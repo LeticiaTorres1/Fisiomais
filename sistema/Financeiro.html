@@ -291,7 +291,6 @@
         document.getElementById('ticketMedio').innerText = (d.bruto / totalP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
         document.getElementById('margemCard').innerText = ((d.lucro / d.bruto) * 100).toFixed(1) + "%";
        
-        // TABELA DE ENTRADAS COM COLUNA DE VALOR
         document.getElementById('corpoTabelaEntrada').innerHTML = d.pacs.map((p, i) => `
             <tr>
                 <td>${nomPlanos[i]}</td>
@@ -302,26 +301,19 @@
        
         document.getElementById('totalEntrada').innerHTML = `<tr><td colspan="2">TOTAL</td><td>${totalP}</td><td>${d.bruto.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</td></tr>`;
 
-
-        // PROGRESSO META
         const metaBase = mes === 'total' ? 960000 : 80000;
         const percent = Math.min((d.bruto / metaBase) * 100, 100).toFixed(1);
         document.getElementById('percentMeta').innerText = percent + "%";
         document.getElementById('fillMeta').style.width = percent + "%";
 
-
-        // MIX BAR
         const mixBar = document.getElementById('mixBar');
         mixBar.innerHTML = "";
         d.pacs.forEach((p, i) => { mixBar.innerHTML += `<div style="width: ${(p*valPlanos[i]/d.bruto)*100}%; background: ${coresPlanos[i]}"></div>`; });
 
-
-        // TABELA SAÍDAS
         const labels = { profissionais: "Repasses", equipamentos: "Insumos", manutencao: "Ocupação", impostos: "Impostos", diversos: "Outros" };
         document.getElementById('corpoTabelaSaida').innerHTML = Object.keys(d.gastosDetalhado).map(key => `<tr><td>${labels[key]}</td><td class="text-danger">- ${d.gastosDetalhado[key].toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</td></tr>`).join('');
         document.getElementById('totalSaida').innerHTML = `<tr><td>TOTAL</td><td class="text-danger">- ${d.totalGastos.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</td></tr>`;
     }
-
 
     function renderizarRelatorio(d, ano, mes) {
         const pTexto = mes === 'total' ? `Acumulado ${ano}` : `${mesesNomes[mes]}/${ano}`;
