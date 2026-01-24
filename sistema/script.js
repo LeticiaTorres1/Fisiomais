@@ -46,7 +46,6 @@ function confirmarPresenca() {
     if (codigosAtivos.includes(cod)) {
         msg.innerHTML = "✅ Check-in realizado! Presença confirmada no sistema.";
         msg.className = "sucesso";
-        // Remove para evitar duplicidade
         codigosAtivos = codigosAtivos.filter(c => c !== cod);
     } else {
         msg.innerHTML = "❌ Código inválido ou já utilizado.";
