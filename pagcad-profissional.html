@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
- <head>
+
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Fisio + Terapia | Saúde Integral | Cadastro</title>
     <link rel="stylesheet" href="visu.css" />
 
- </head>
-  <body style = "margin-top: 130px;">
+</head>
+
+<body style="margin-top: 130px;">
     <header>
         <div class="nav-container">
             <div class="logo-nav">
@@ -27,38 +29,37 @@
         </div>
     </header>
 
-  <main class="login-page">
-    <div class="login-container">
-        <h1>Cadastro (Profissional)</h1>
-        <p>Cadastre-se como profissional</p>
+    <main class="login-page">
+        <div class="login-container">
+            <h1>Cadastro (Profissional)</h1>
+            <p>Cadastre-se como profissional</p>
 
-        <form>
-            <labe>Nome :</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            <form>
+                <labe>Nome :</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
 
-            <label>Data de Nascimento :</label>
-            <input type="date" id="idade" name="idade" placeholder="Coloque sua data de nascimento" required>
-    
-            <div>
-            <label>Gênero :</label>
-            <div class="gender-options">
-             <input type="radio" id="masculino" name="genero" value="masculino">
-             <label for="masculino">Masculino</label>
+                    <label>Data de Nascimento :</label>
+                    <input type="date" id="idade" name="idade" placeholder="Coloque sua data de nascimento" required>
 
-             <input type="radio" id="feminino" name="genero" value="feminino">
-             <label for="feminino">Feminino</label>
-            </div>
-           </div>
+                    <div>
+                        <label>Gênero :</label>
+                        <div class="gender-options">
+                            <input type="radio" id="masculino" name="genero" value="masculino">
+                            <label for="masculino">Masculino</label>
 
-            <div class="form-group">
-                   
-                <label>Número do CREFITO :</label>
-                <input type="text" id="crefito" name="crefito"
-                       placeholder="Ex: 123456-F" required>
+                            <input type="radio" id="feminino" name="genero" value="feminino">
+                            <label for="feminino">Feminino</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Número do CREFITO :</label>
+                        <input type="text" id="crefito" name="crefito" placeholder="Ex: 123456-F" required>
 
 
-                <label>Região do CREFITO :</label>
-                <select id="regiao-crefito" name="regiao-crefito" required>
+                        <label>Região do CREFITO :</label>
+                        <select id="regiao-crefito" name="regiao-crefito" required>
                     <option value="">Selecione a região</option>
                     <option value="CREFITO-1">CREFITO-1 (RJ)</option>
                     <option value="CREFITO-2">CREFITO-2 (SP)</option>
@@ -79,27 +80,35 @@
                     <option value="CREFITO-17">CREFITO-17 (RN)</option>
                     <option value="CREFITO-18">CREFITO-18 (PI)</option>
                 </select>
+                    </div>
+
+                    <label>E-mail :</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                    <label>Senha :</label>
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+
+                    <label>Anexe a sua foto :</label>
+                    <input type="file" id="foto" name="arquivofoto">
+
+                    <button type="submit">Cadastrar</button>
+            </form>
+
+            <div class="login-links">
+                <a href="paglogin.html">Já tenho conta</a>
             </div>
-
-            <label>E-mail :</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-
-            <label>Senha :</label>
-            <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
-
-            <label>Anexe a sua foto :</label>
-            <input type="file" id="foto" name="arquivofoto">
-        
-            <button type="submit">Cadastrar</button>
-        </form>
-
-        <div class="login-links">
-            <a href="paglogin.html">Já tenho conta</a>
-        </div>
     </main>
 
+<<<<<<< HEAD
+    <footer>
+        <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+=======
         <footer>
             <p>&copy; 2026 Fisio + Terapia. Todos os direitos reservados.</p>
         </footer>
   </body>
+>>>>>>> 2d4a16ea966bd52b6170d987c010bf00f027de7b
 </html>
