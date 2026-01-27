@@ -1,129 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>Fisio + Terapia | Configurações</title>
     <link rel="stylesheet" href="visu.css" />
-   
+
     <style>
-        :root {
-            --primary: #059669;      
-            --primary-light: #10b981;
-            --bg-body: #f8fafc;      
+         :root {
+            --primary: #1A4E58;
+            --primary-dark: #123B42;
+            --bg-body: #f8fafc;
             --bg-card: #ffffff;
-            --text-main: #1e293b;    
+            --text-main: #1e293b;
             --text-muted: #64748b;
             --border: #e2e8f0;
             --danger: #ef4444;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --radius: 10px;
         }
-
+        
+        html,
         body {
+            height: 100%;
             margin: 0;
+            padding: 0;
+        }
+        
+        body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
         }
-
-        .content-area {
-            max-width: 850px;
+        
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 100%;
         }
-
-        .header-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
+        
+        .logo-nav img {
+            max-height: 45px;
+            display: block;
+            width: auto;
         }
-
-        .header-title h1 {
-            font-size: 2rem;
-            font-weight: 700;
+        
+        .menu-horizontal {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .menu-horizontal li a {
+            text-decoration: none;
             color: var(--text-main);
-            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
         }
-
-        .header-title p {
+        
+        .menu-horizontal li a:hover {
+            color: var(--primary);
+        }
+        
+        .content-area {
+            flex: 1;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 110px 1.5rem 40px 1.5rem;
+            box-sizing: border-box;
+        }
+        
+        .page-header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+        
+        .page-header p {
             color: var(--text-muted);
             margin: 0;
-            font-size: 1.1rem;
         }
-
+        
         .settings-grid {
             display: grid;
             gap: 2rem;
         }
-
+        
         .card {
             background: var(--bg-card);
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border);
             overflow: hidden;
         }
-
+        
         .card-header {
-            padding: 1.5rem;
+            padding: 1.2rem 1.5rem;
             border-bottom: 1px solid var(--border);
             background: #fcfcfc;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .card-header h2 {
             margin: 0;
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-main);
         }
-
+        
         .card-body {
             padding: 1.5rem;
         }
-
+        
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-       
+        
         .form-group.full-width {
             grid-column: span 2;
         }
-
-        .barra-configurações {
-            background-color: var(--azul-medio);
-            color: #ffffff;
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 30px;
-            font-size: 26px;
-            font-weight: bold;
+        
+        .form-group.third {
+            grid-column: span 1;
         }
-
+        
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-main);
         }
-
+        
         input[type="text"],
         input[type="email"],
         input[type="password"],
         input[type="tel"],
-        select {
+        input[type="date"],
+        select,
+        textarea {
             width: 100%;
             padding: 0.75rem 1rem;
             border: 1px solid var(--border);
@@ -132,21 +180,23 @@
             color: var(--text-main);
             background-color: white;
             box-sizing: border-box;
-            transition: border-color 0.2s;
+            font-family: inherit;
         }
-
-        input:focus {
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 0 0 3px rgba(26, 78, 88, 0.2);
         }
-
+        
         input:disabled {
             background-color: #f1f5f9;
             color: var(--text-muted);
             cursor: not-allowed;
         }
-
+        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -154,51 +204,49 @@
             padding: 0.6rem 1.2rem;
             border-radius: 6px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            text-decoration: none;
             transition: all 0.2s;
             border: none;
         }
-
+        /* Botão com a nova cor */
+        
         .btn-primary {
             background-color: var(--primary);
             color: white;
         }
+        
         .btn-primary:hover {
-            background-color: var(--primary-light);
+            background-color: var(--primary-dark);
         }
-
-
+        
         .btn-outline {
             background-color: white;
             border: 1px solid var(--border);
             color: var(--text-main);
         }
+        
         .btn-outline:hover {
             background-color: #f8fafc;
             border-color: var(--text-muted);
         }
-
-
+        
         .btn-danger {
             color: var(--danger);
-            background: #fef2f2;
-            border: 1px solid #fecaca;
+            background: #fff;
+            border: 1px solid var(--danger);
             width: 100%;
         }
-
+        
+        .btn-danger:hover {
+            background: #fef2f2;
+        }
+        
         .btn-sm {
             padding: 0.4rem 0.8rem;
             font-size: 0.8rem;
         }
-
-        .item-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        
         .list-row {
             display: flex;
             align-items: center;
@@ -206,41 +254,55 @@
             padding: 1rem 0;
             border-bottom: 1px solid var(--border);
         }
-        .list-row:last-child { border-bottom: none; }
-
+        
+        .list-row:last-child {
+            border-bottom: none;
+        }
+        
         .list-info strong {
             display: block;
             font-size: 0.95rem;
-            color: var(--text-main);
         }
-       
+        
         .list-info span {
             font-size: 0.85rem;
             color: var(--text-muted);
+            display: block;
+            margin-top: 3px;
         }
-
+        
         .switch-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0.8rem 0;
         }
-
+        
         .switch {
             position: relative;
             display: inline-block;
             width: 44px;
             height: 24px;
         }
-        .switch input { opacity: 0; width: 0; height: 0; }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
         .slider {
             position: absolute;
             cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-color: #cbd5e0;
             border-radius: 34px;
             transition: .3s;
         }
+        
         .slider:before {
             position: absolute;
             content: "";
@@ -252,37 +314,85 @@
             border-radius: 50%;
             transition: .3s;
         }
-        input:checked + .slider { background-color: var(--primary); }
-        input:checked + .slider:before { transform: translateX(20px); }
-
+        
+        input:checked+.slider {
+            background-color: var(--primary);
+        }
+        
+        input:checked+.slider:before {
+            transform: translateX(20px);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .checkbox-item input {
+            margin-right: 8px;
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+        }
+        
         .badge {
             font-size: 0.75rem;
-            padding: 2px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
         }
-        .badge-green { background: #d1fae5; color: #065f46; }
-
+        
+        .badge-green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
         footer {
-            margin-top: 3rem;
+            background-color: #ffffff;
+            color: var(--text-main);
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            padding-bottom: 2rem;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto;
+            border-top: 1px solid var(--border);
         }
-
+        
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 700px) {
-            .form-grid { grid-template-columns: 1fr; }
-            .content-area { padding: 1rem; }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .content-area {
+                padding: 100px 1rem 30px 1rem;
+            }
         }
     </style>
 </head>
 
-<body style = "margin-top: 80px;">
+<body>
+
     <header>
         <div class="nav-container">
             <div class="logo-nav">
-                <img src="Imagens/logo.png" alt="Fisio + Terapia" width=28%>
+                <img src="Imagens/logo.png" alt="Fisio + Terapia" width="100">
             </div>
             <nav>
                 <ul class="menu-horizontal">
@@ -290,23 +400,24 @@
                     <li><a href="paglogin.html">Login</a></li>
                     <li><a href="cadastro.html">Cadastro</a></li>
                     <li><a href="avaliações.html">Avaliações</a></li>
-                    <li><a href="configurações.html">Configurações</a></li>
+                    <li><a href="configurações.html" style="color: var(--primary);">Configurações</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <main class="content-area">
-       
-        <div class="header-title">
-        <div class="barra-configurações">Configurações</div>
-            <p>Gerencie seus dados pessoais, pagamentos e preferências.</p>
+
+        <div class="page-header">
+            <h1>Configurações da Conta</h1>
+            <p>Gerencie seus dados, preferências e segurança.</p>
         </div>
 
         <div class="settings-grid">
+
             <section class="card">
                 <div class="card-header">
-                    <h2>Informações Pessoais</h2>
-                    <button class="btn btn-outline btn-sm">Editar Foto</button>
+                    <h2>Dados Pessoais</h2>
                 </div>
                 <div class="card-body">
                     <div class="form-grid">
@@ -319,19 +430,100 @@
                             <input type="text" value="***.***.***-00" disabled>
                         </div>
                         <div class="form-group">
-                            <label>E-mail Principal</label>
+                            <label>Data de Nascimento</label>
+                            <input type="date" value="1990-05-15">
+                        </div>
+                        <div class="form-group">
+                            <label>Gênero</label>
+                            <select>
+                                <option>Selecione</option>
+                                <option selected>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail</label>
                             <input type="email" value="carlos.silva@email.com">
                         </div>
                         <div class="form-group">
-                            <label>Telefone / WhatsApp</label>
+                            <label>Celular</label>
                             <input type="tel" value="(11) 98765-4321">
                         </div>
-                        <div class="form-group full-width">
-                            <label>Endereço Residencial</label>
-                            <input type="text" value="Av. Paulista, 1000 - Bela Vista, São Paulo">
+
+                        <div class="form-group full-width" style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 15px;">
+                            <label style="color: var(--primary);">Endereço Completo</label>
+                        </div>
+                        <div class="form-group">
+                            <label>CEP</label>
+                            <input type="text" value="01310-100">
+                        </div>
+                        <div class="form-group">
+                            <label>Rua</label>
+                            <input type="text" value="Av. Paulista">
+                        </div>
+                        <div class="form-group">
+                            <label>Número</label>
+                            <input type="text" value="1000">
+                        </div>
+                        <div class="form-group">
+                            <label>Bairro</label>
+                            <input type="text" value="Bela Vista">
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade</label>
+                            <input type="text" value="São Paulo">
+                        </div>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <select>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>MG</option>
+                            </select>
                         </div>
                     </div>
-                    <button class="btn btn-primary">Salvar Alterações</button>
+                    <div style="margin-top: 20px; text-align: right;">
+                        <button class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2>Preferências de Notificação</h2>
+                </div>
+                <div class="card-body">
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>E-mail</strong>
+                            <span>Receber confirmações de agendamento e faturas.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>SMS</strong>
+                            <span>Lembretes rápidos 1h antes da consulta.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>WhatsApp</strong>
+                            <span>Receber dicas de saúde e contato direto.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
                 </div>
             </section>
 
@@ -340,21 +532,18 @@
                     <h2>Aplicativos Conectados</h2>
                 </div>
                 <div class="card-body">
-                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0;">
-                        Sincronize seus dados de atividade física para melhor acompanhamento.
-                    </p>
                     <ul class="item-list">
                         <li class="list-row">
                             <div class="list-info">
                                 <strong>Apple Saúde / Google Fit</strong>
-                                <span>Passos diários e mobilidade</span>
+                                <span>Monitoramento de passos e mobilidade.</span>
                             </div>
-                            <span class="badge badge-green">Conectado</span>
+                            <span class="badge badge-green">Ativo</span>
                         </li>
                         <li class="list-row">
                             <div class="list-info">
                                 <strong>Strava</strong>
-                                <span>Histórico de corridas e pedaladas</span>
+                                <span>Histórico de exercícios externos.</span>
                             </div>
                             <button class="btn btn-outline btn-sm">Conectar</button>
                         </li>
@@ -364,110 +553,144 @@
 
             <section class="card">
                 <div class="card-header">
-                    <h2>Métodos de Pagamento</h2>
+                    <h2>Preferências de Atendimento</h2>
                 </div>
                 <div class="card-body">
-                    <div class="list-row" style="background: #f8fafc; padding: 1rem; border-radius: 6px; border: 1px solid var(--border); margin-bottom: 1rem;">
-                        <div class="list-info">
-                            <strong style="color:var(--text-main);">Mastercard final 4242</strong>
-                            <span>Expira em 12/28 • Padrão</span>
+                    <div class="form-group">
+                        <label>Turno preferencial:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" checked> Manhã (08h - 12h)</label>
+                            <label class="checkbox-item"><input type="checkbox"> Tarde (13h - 18h)</label>
+                            <label class="checkbox-item"><input type="checkbox"> Noite (18h - 21h)</label>
                         </div>
-                        <button class="btn btn-outline btn-sm">Remover</button>
                     </div>
-                    <button class="btn btn-outline" style="width: 100%;">+ Adicionar novo cartão</button>
-                   
-                    <div style="margin-top: 2rem;">
-                        <label style="margin-bottom: 1rem; display:block;">Histórico de Faturas</label>
-                        <ul class="item-list">
-                            <li class="list-row">
-                                <div class="list-info">
-                                    <strong>Consulta Avaliação</strong>
-                                    <span>15 Jan 2025</span>
-                                </div>
-                                <strong style="font-size: 0.9rem;">R$ 150,00</strong>
-                            </li>
-                        </ul>
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label>Observações Médicas / Restrições</label>
+                        <textarea rows="3" placeholder="Ex: Sinto dores ao fazer movimentos bruscos, tenho marcapasso..."></textarea>
                     </div>
+                    <button class="btn btn-primary" style="margin-top: 1rem;">Atualizar Preferências</button>
                 </div>
             </section>
 
             <section class="card">
                 <div class="card-header">
-                    <h2>Meus Exames</h2>
+                    <h2>Contato de Emergência</h2>
                 </div>
                 <div class="card-body">
-                    <ul class="item-list">
-                        <li class="list-row">
-                            <div class="list-info">
-                                <strong>Ressonância Magnética - Joelho D.</strong>
-                                <span>Enviado em 20/01/2025 • PDF</span>
-                            </div>
-                            <button class="btn btn-outline btn-sm">Baixar</button>
-                        </li>
-                    </ul>
-                    <button class="btn btn-primary" style="margin-top: 1rem; width:100%;">Enviar Novo Documento</button>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nome do Contato</label>
+                            <input type="text" placeholder="Nome do parente/amigo">
+                        </div>
+                        <div class="form-group">
+                            <label>Grau de Parentesco</label>
+                            <input type="text" placeholder="Ex: Mãe, Esposo, Irmã">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Telefone</label>
+                            <input type="tel" placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 1rem;">Salvar Contato</button>
                 </div>
             </section>
 
             <section class="card">
                 <div class="card-header">
-                    <h2>Preferências e Segurança</h2>
+                    <h2>Acessibilidade</h2>
                 </div>
                 <div class="card-body">
-                   
                     <div class="switch-wrapper">
                         <div class="list-info">
-                            <strong>Notificações Push</strong>
-                            <span>Receber alertas instantâneos na tela do celular/PC.</span>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-wrapper">
-                        <div class="list-info">
-                            <strong>Lembretes por E-mail</strong>
-                            <span>Avisos de consulta e faturas.</span>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="switch-wrapper">
-                        <div class="list-info">
-                            <strong>Autenticação de Dois Fatores (2FA)</strong>
-                            <span>Aumentar a segurança da conta via SMS.</span>
+                            <strong>Alto Contraste</strong>
+                            <span>Melhora a legibilidade dos textos.</span>
                         </div>
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider"></span>
                         </label>
                     </div>
-
-                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 2rem 0;">
-
-                    <div class="form-group">
-                        <label>Alterar Senha</label>
-                        <input type="password" placeholder="Nova senha" style="margin-bottom: 0.5rem;">
-                        <input type="password" placeholder="Confirmar nova senha">
-                        <button class="btn btn-primary" style="margin-top: 1rem;">Atualizar Senha</button>
-                    </div>
-                   
-                    <div style="margin-top: 3rem;">
-                        <button class="btn btn-danger">Encerrar Conta</button>
+                    <div class="switch-wrapper">
+                        <div class="list-info">
+                            <strong>Texto Maior</strong>
+                            <span>Aumentar o tamanho da fonte padrão.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
                     </div>
                 </div>
             </section>
 
-        </div>
+            <section class="card">
+                <div class="card-header">
+                    <h2>Pagamentos</h2>
+                </div>
+                <div class="card-body">
+                    <div class="list-row" style="background: #f1f5f9; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                        <div class="list-info">
+                            <strong>Mastercard final 4242</strong>
+                            <span>Crédito • Exp 12/28</span>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Remover</button>
+                    </div>
+                    <button class="btn btn-outline" style="width: 100%;">Adicionar Novo Cartão</button>
 
-        <footer>
-            <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
-        </footer>
+                    <h3 style="margin-top: 2rem; font-size: 1rem; border-bottom: 1px solid #eee; padding-bottom: 5px;">Histórico Recente</h3>
+                    <ul class="item-list">
+                        <li class="list-row">
+                            <div class="list-info">
+                                <strong>Mensalidade Plano Essencial</strong>
+                                <span>05 Fev 2025 • Pago</span>
+                            </div>
+                            <strong style="color: var(--primary);">R$ 280,00</strong>
+                        </li>
+                        <li class="list-row">
+                            <div class="list-info">
+                                <strong>Sessão Avulsa</strong>
+                                <span>15 Jan 2025 • Pago</span>
+                            </div>
+                            <strong style="color: var(--primary);">R$ 150,00</strong>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="card">
+                <div class="card-header">
+                    <h2>Segurança da Conta</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Alterar Senha</label>
+                        <div class="form-grid">
+                            <input type="password" placeholder="Nova senha">
+                            <input type="password" placeholder="Confirmar senha">
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 1rem;">Atualizar Senha</button>
+                    </div>
+                    <div class="switch-wrapper" style="margin-top: 20px;">
+                        <div class="list-info">
+                            <strong>Autenticação de Dois Fatores (2FA)</strong>
+                            <span>Segurança extra via SMS no login.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #fee2e2;">
+                    <button class="btn btn-danger">Excluir Minha Conta</button>
+                </div>
+            </section>
+
+        </div>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
+    </footer>
+
 </body>
+
 </html>

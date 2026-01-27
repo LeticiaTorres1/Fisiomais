@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
- <head>
+
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Fisio + Terapia | Saúde Integral | Plano</title>
     <link rel="stylesheet" href="visu.css" />
- </head>
-  <body style = "margin-top: 130px;">
+</head>
+
+<body style="margin-top: 130px;">
     <header>
         <div class="nav-container">
             <div class="logo-nav">
@@ -23,15 +25,15 @@
             </nav>
         </div>
     </header>
-    
-   <main class="login-page">
-    <div class="login-container">
-        <h1>Contratação do Plano</h1>
-        <p>Faça o seu login e realize o pagamento do plano</p>
 
-        <form>
-            <input type="email" placeholder="E-mail" required>
-            <input type="password" placeholder="Senha" required>
+    <main class="login-page">
+        <div class="login-container">
+            <h1>Contratação do Plano</h1>
+            <p>Faça o seu login e realize o pagamento do plano</p>
+
+            <form>
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
 
                 <select id="formaPagamento" onchange="mostrarPagamento()">
                  <option value="">Forma de pagamento</option>
@@ -40,28 +42,28 @@
                 </select>
 
 
-    <div id="pix" class="pagamento" style="display:none;">
-        <div class="qrcode">
-            <img src = "Imagens/qrcod.jpg" width = "200px">
+                <div id="pix" class="pagamento" style="display:none;">
+                    <div class="qrcode">
+                        <img src="Imagens/qrcod.jpg" width="200px">
+                    </div>
+                </div>
+
+
+                <div id="cartao" class="pagamento" style="display:none;">
+                    <input type="text" placeholder="Nome do titular">
+                    <input type="text" placeholder="Número do cartão">
+                    <input type="text" placeholder="CVC">
+                    <input type="month" placeholder="Validade">
+                </div>
+
+                <button type="submit">Finalizar Contratação</button>
+            </form>
+
+            <div class="login-links">
+                <a href="pagcad-paciente.html">Criar conta</a>
+            </div>
         </div>
-    </div>
-
-
-    <div id="cartao" class="pagamento" style="display:none;">
-        <input type="text" placeholder="Nome do titular">
-        <input type="text" placeholder="Número do cartão">
-        <input type="text" placeholder="CVC">
-        <input type="month" placeholder="Validade">
-    </div>
-
-         <button type="submit">Finalizar Contratação</button>
-        </form>
-
-        <div class="login-links">
-            <a href="pagcad-paciente.html">Criar conta</a>
-        </div>
-    </div>
-   </main>
+    </main>
 
     <footer>
         <p>&copy; 2025 Fisio + Terapia. Todos os direitos reservados.</p>
@@ -74,21 +76,21 @@
         }
 
         function mostrarPagamento() {
-        const forma = document.getElementById("formaPagamento").value;
+            const forma = document.getElementById("formaPagamento").value;
             document.getElementById("pix").style.display = "none";
             document.getElementById("cartao").style.display = "none";
 
 
-        if (forma === "pix") {
-            document.getElementById("pix").style.display = "block";
+            if (forma === "pix") {
+                document.getElementById("pix").style.display = "block";
+            }
+
+
+            if (forma === "cartao") {
+                document.getElementById("cartao").style.display = "block";
+            }
         }
-
-
-        if (forma === "cartao") {
-            document.getElementById("cartao").style.display = "block";
-        }
-       }
-
     </script>
-  </body>
+</body>
+
 </html>
