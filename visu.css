@@ -2,6 +2,7 @@
         :root {
             --azul-logo: #1a3c40;
             --azul-medio: #2d5a5e;
+            --azul-claro: #509197;
             --bege-claro: #f4f1ea;
             --bege-escuro: #d9d4c7;
             --branco: #ffffff;
@@ -36,6 +37,16 @@
 
         main {
             width: 100%;
+        }
+
+
+        footer {
+            padding: 60px;
+            text-align: center;
+            background-color: var(--branco);
+            border-top: 1px solid #ddd;
+            color: var(--azul-logo);
+            font-weight: 600;
         }
 
         /*CONFIGURAÇÕES DA BARRA DE MENU*/
@@ -290,15 +301,6 @@
             font-weight: 500;
         }
 
-        footer {
-            padding: 60px;
-            text-align: center;
-            background-color: var(--branco);
-            border-top: 1px solid #ddd;
-            color: var(--azul-logo);
-            font-weight: 600;
-        }
-
         .nossos-profissionais {
             background-color: #1f3f45;
             padding: 60px 40px;
@@ -446,8 +448,8 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #0fb9b1;
-            color: #003333;
+            background-color: var(--azul-claro);
+            color: var(--branco);
             font-weight: bold;
             border: none;
             border-radius: 6px;
