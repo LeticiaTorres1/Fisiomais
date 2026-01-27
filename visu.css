@@ -2,6 +2,7 @@
         :root {
             --azul-logo: #1a3c40;
             --azul-medio: #2d5a5e;
+            --azul-claro: #509197;
             --bege-claro: #f4f1ea;
             --bege-escuro: #d9d4c7;
             --branco: #ffffff;
@@ -447,8 +448,8 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #0fb9b1;
-            color: #003333;
+            background-color: var(--azul-claro);
+            color: var(--branco);
             font-weight: bold;
             border: none;
             border-radius: 6px;
