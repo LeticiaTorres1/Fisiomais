@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Sistema Clínica Fisio+</title>
+<link rel="stylesheet" href="../visu.css"/>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+
+#loginBox {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+
+.login-card {
+    width: 420px;
+    padding: 40px;
+    background: white;
+    border-radius: 14px;
+}
+
+
+.login-card h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #0f2f2e;
+    text-align: left;
+}
+
+
+.login-card p {
+    margin: 10px 0 30px;
+    color: #6b7280;
+    font-size: 15px;
+    text-align: left;
+}
+
+
+.login-card input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #d6cfc4;
+    font-size: 15px;
+}
+
+
+.login-card input:focus {
+    outline: none;
+    border-color: #1f3f3e;
+}
+
+
+.login-card button {
+    width: 100%;
+    padding: 15px;
+    background-color: #1f3f3e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.login-card button:hover {
+    background-color: #163332;
+}
+
+
+
+
+#sistema {
+    display: none;
+}
+
+
+.navbar {
+    background-color: #2d5a5e;
+    padding: 15px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+
+.menu a, .menu button {
+    text-decoration: none;
+    background-color: #2d5a5e;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.menu a:hover, .menu button:hover {
+    background-color: #244a4d;
+}
+
+
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+
+.card {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+
+<body>
+<div id="loginBox">
+    <div class="login-card">
+        <h2>Sistema 🔒</h2>
+        <p>Login para acessar a gerencia do sistema</p>
+
+        <input type="email" id="email" placeholder="E-mail">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+        <div class="login-links">
+            <a href="../index.html">Sair</a>
+        </div>
+    </div>
+</div>
+
+<div id="sistema">
+    <div class="navbar">
+        <strong>CLÍNICA FISIO+TERAPIA | SISTEMA</strong>
+        <div class="menu">
+            <a href="financeiro.html"> Financeiro</a>
+            <a href="prontuario.html"> Ficha de prontuários</a>
+            <a href="registro-prontuarios.html"> Prontuarios Registrados</a>
+            <button onclick="logout()">Sair</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="card">
+            <h2>Bem-vindo ao Sistema</h2>
+            <p>Escolha um módulo no menu acima.</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+const EMAIL_FIXO = "fisio+terapia2026@gmail.com";
+const SENHA_FIXA = "fisio+2026";
+
+
+function login() {
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+
+    if (email === EMAIL_FIXO && senha === SENHA_FIXA) {
+        localStorage.setItem("logado", "sim");
+        mostrarSistema();
+    } else {
+        alert("E-mail ou senha incorretos!");
+    }
+}
+
+
+function mostrarSistema() {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("sistema").style.display = "block";
+}
+
+
+function logout() {
+    localStorage.removeItem("logado");
+    location.reload();
+}
+
+
+window.onload = () => {
+    if (localStorage.getItem("logado") === "sim") {
+        mostrarSistema();
+    }
+};
+</script>
+
+
+</body>
+</html>
